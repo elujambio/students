@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :students, controllers: { registrations: "students/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+
+  devise_scope :student do
+    root to: "devise/sessions#new"
+  end
+  resources :students, only: [:edit, :update]
+  get 'show/:id'  => 'students#show', as: "show_student"
+  # devise_for :students, controllers: { confirmations: 'confirmations' }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

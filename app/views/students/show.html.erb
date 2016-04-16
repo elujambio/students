@@ -1,0 +1,11 @@
+<p>Student Name</p>
+<p>
+<% if @student.name %><%= @student.name %><% else %>No name<% end %></p>
+<p>Student Number</p>
+<p><%= @student.student_number %></p>
+ 
+<% if student_signed_in? and @student == current_student %>
+	<%= link_to "EDITAR", edit_student_registration_path %>
+<% end %>
+
+
