@@ -4,13 +4,14 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <label>Student Number</label>
+    <% f.label :email %><br />
+    <div style="display:none">
+      <%= f.text_field :email, autofocus: true %>
+    </div>
+    <input id="student-number">
   </div>
-  <div class="field">
-    <%= f.label :student_number %><br />
-    <%= f.text_field :student_number, autofocus: true %>
-  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -28,5 +29,16 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+<script>
+$(document).ready(function () {
+  var sN = document.getElementById("student-number");
+  var sM = document.getElementById("student_email");
+  $("#student-number").keyup(
+    function () {
+      sM.value = sN.value + "@itesm.mx";
+    }
+  );
+}
+);
+</script>
 <%= render "students/shared/links" %>

@@ -1,7 +1,6 @@
-<p>Student Name</p>
-<p>
-<% if @student.name %><%= @student.name %><% else %>No name<% end %></p>
-<p>Student Number</p>
+<label>Student Name</label>
+<p><% if @student.name %><%= @student.name %><% else %>No name<% end %></p>
+<label>Student Class</label>
 <p><%= @student.student_number %></p>
  
 <% if student_signed_in? and @student == current_student %>

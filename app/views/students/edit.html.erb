@@ -1,4 +1,5 @@
 <%= form_for(@student) do |student| %>
 	<%= student.text_field :name, placeholder: "Name" %>
+	<%= student.select :student_number, options_for_select([["Math 1"], ["Spanish"], ["English"], ["Computer Sciences"]]) %>
 	<%= student.submit "Submit" %>
 <% end %>
