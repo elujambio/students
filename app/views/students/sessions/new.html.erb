@@ -2,8 +2,13 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <label>Student Number</label>
+    <% f.label :email %><br />
+    <input id="student-number">
+    <div style="display:none">
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <!-- student_email -->
   </div>
 
   <div class="field">
@@ -22,5 +27,16 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<script>
+$(document).ready(function () {
+  var sN = document.getElementById("student-number");
+  var sM = document.getElementById("student_email");
+  $("#student-number").keyup(
+    function () {
+      sM.value = sN.value + "@itesm.mx";
+    }
+  );
+}
+);
+</script>
 <%= render "students/shared/links" %>
