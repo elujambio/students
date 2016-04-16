@@ -19,6 +19,6 @@ class StudentsController < ApplicationController
 	end
 	private 
 	def student_params
-		params.require(:student).permit(:name, :student_number) 
+		params.require(:student).permit(:name, :student_number, :alternate_email) 
 	end
 end
